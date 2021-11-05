@@ -30,7 +30,7 @@
                             background-color: #4CAF50;
                             border: none;
                             color: white;
-                            padding: 10px 10px;
+                            padding: 10px;
                             text-align: center;
                             text-decoration: none;
                             display: inline-block;
@@ -42,7 +42,7 @@
                             background-color: red;
                             border: none;
                             color: white;
-                            padding: 10px 10px;
+                            padding: 10px;
                             text-align: center;
                             text-decoration: none;
                             display: inline-block;
@@ -69,28 +69,26 @@
                                 <form method="POST" action="{{ route('user.update',$user->id) }}">
                                     @csrf
                                     {{-- <input type="text" value="{{ $user->id }}" hidden="hidden"> --}}
-                                    <input type="submit" class="button" value="Accept">
-                                </form>
-                                <form method="POST" action="{{ route('user.destroy',$user->id) }}">
-                                    @csrf
-                                    {{-- <input type="text" value="{{ $user->id }}" hidden="hidden"> --}}
-                                    <input type="submit" class="button-ignore" value="Ignore">
-                                </form>
-                                </td>
-                            </tr>
-                            @endforeach
-                        </table>
+                                    <input type="submit" class="button" value="Accept"></form>
+                                    <form method="POST" action="{{ route('user.destroy',$user->id) }}">
+                                        @csrf
+                                        {{-- <input type="text" value="{{ $user->id }}" hidden="hidden"> --}}
+                                        <input type="submit" class="button-ignore" value="Ignore"></form>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </table>
 
-                    </body>
-                </html>
-                @elseif(Auth::user()->role == 2 && Auth::user()->admin_verification == 2)
-                we will notify you
-                @elseif(Auth::user()->role == 2 && Auth::user()->admin_verification == 1)
-                welcome,you are logged in
-                @endif
+                        </body>
+                    </html>
+                    @elseif(Auth::user()->role == 2 && Auth::user()->admin_verification == 2) Thanks
+                    for doing registration. We are now reviewing your application. wait untill you are
+                    verified by the admin
+                    @elseif(Auth::user()->role == 2 && Auth::user()->admin_verification == 1)
+                    welcome,you are logged in @endif
+                </div>
             </div>
         </div>
-    </div>
 
-</div>
+    </div>
 </x-app-layout>
