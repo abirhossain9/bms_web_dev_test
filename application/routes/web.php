@@ -19,4 +19,6 @@ Route::get('/', function () {
 
 Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index')->middleware(['auth'])->name('dashboard');
 Route::post('/user-update/{id}','App\Http\Controllers\DashboardController@update')->name('user.update');
+Route::post('/user-deny/{id}','App\Http\Controllers\DashboardController@destroy')->name('user.destroy');
+
 require __DIR__.'/auth.php';
