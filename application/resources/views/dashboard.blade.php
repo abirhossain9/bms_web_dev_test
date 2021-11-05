@@ -30,7 +30,19 @@
                             background-color: #4CAF50;
                             border: none;
                             color: white;
-                            padding: 15px 32px;
+                            padding: 10px 10px;
+                            text-align: center;
+                            text-decoration: none;
+                            display: inline-block;
+                            font-size: 16px;
+                            margin: 4px 2px;
+                            cursor: pointer;
+                        }
+                        .button-ignore {
+                            background-color: red;
+                            border: none;
+                            color: white;
+                            padding: 10px 10px;
                             text-align: center;
                             text-decoration: none;
                             display: inline-block;
@@ -41,7 +53,6 @@
                     </style>
                 </head>
                 <body>
-                    <h2>manage users</h2>
                     <table>
                         <tr>
                             <th>sl</th>
@@ -57,8 +68,13 @@
                             <td>
                                 <form method="POST" action="{{ route('user.update',$user->id) }}">
                                     @csrf
-                                    <input type="text" value="{{ $user->id }}" hidden="hidden">
-                                    <input type="submit" class="button" value="Verify">
+                                    {{-- <input type="text" value="{{ $user->id }}" hidden="hidden"> --}}
+                                    <input type="submit" class="button" value="Accept">
+                                </form>
+                                <form method="POST" action="{{ route('user.destroy',$user->id) }}">
+                                    @csrf
+                                    {{-- <input type="text" value="{{ $user->id }}" hidden="hidden"> --}}
+                                    <input type="submit" class="button-ignore" value="Ignore">
                                 </form>
                                 </td>
                             </tr>
